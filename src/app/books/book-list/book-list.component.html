@@ -1,0 +1,34 @@
+<h1>List Book</h1>
+<p>
+    <a routerLink="/create-book">
+      Add new book
+    </a>
+</p>
+<br>
+<h3>Có {{quantity}} cuốn sách</h3>
+<br>
+<table id="book">
+  <thead>
+  <tr >
+    <th style="text-align: center">id</th>
+    <th style="text-align: center">Title</th>
+    <th style="text-align: center">Author</th>
+<!--    <th style="text-align: center">Description</th>-->
+    <th colspan="2" style="text-align: center">Action</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let book of bookList">
+    <td style="text-align: center">{{book.id}}</td>
+    <td><a [routerLink]="['detail-book', book.id]">{{book.title}}</a></td>
+    <td >{{book.author}}</td>
+<!--    <td >{{book.description}}</td>-->
+    <td><a [routerLink]="['edit-book',book.id]">Edit</a></td>
+    <td><a [routerLink]="['delete-book',book.id]">Delete</a></td>
+  </tr>
+  </tbody>
+</table>
+
+<router-outlet></router-outlet>
+
+

@@ -1,0 +1,41 @@
+<h1>Edit Book</h1>
+<p>
+  <a routerLink="/list-book">
+    Back to book list
+  </a>
+</p>
+
+<div *ngIf="successMessage" class="alert alert-success">
+  <p>{{successMessage}}</p>
+</div>
+
+<div *ngIf="failMessage" class="alert alert-danger">
+  <p>{{failMessage}}</p>
+</div>
+
+<form #bookForm = "ngForm" (ngSubmit)="updateBook(bookForm)">
+  <input type="hidden" [(ngModel)]="book.id" name="id" ngModel class="form-control"/>
+  <table>
+    <tr>
+      <td>Title: </td>
+      <td>    <input type="text" [(ngModel)]="book.title" name="title" ngModel class="form-control">
+      </td>
+    </tr>
+    <tr>
+      <td>author: </td>
+      <td>    <input type="text" [(ngModel)]="book.author" name="author" ngModel class="form-control">
+      </td>
+    </tr>
+    <tr>
+      <td>description: </td>
+      <td><label>
+        <textarea [(ngModel)]="book.description" name="description"></textarea>
+      </label></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td><input type="submit" value="Update"/></td>
+    </tr>
+  </table>
+
+  <router-outlet></router-outlet>

@@ -1,0 +1,38 @@
+<h1>Create Book</h1>
+<p>
+  <a routerLink="/list-book">
+    Back to book list
+  </a>
+</p>
+
+<div *ngIf="successMessage" class="alert alert-success">
+  <p>{{successMessage}}</p>
+</div>
+
+<div *ngIf="failMessage" class="alert alert-danger">
+  <p>{{failMessage}}</p>
+</div>
+
+<form #bookForm = "ngForm" (ngSubmit)="addBook(bookForm)">
+  <table>
+    <tr>
+      <td>Title: </td>
+      <td><input type="text" name="title" ngModel class="form-control"/></td>
+    </tr>
+    <tr>
+      <td>author: </td>
+      <td><input type="text" name="author" ngModel class="form-control"/></td>
+    </tr>
+    <tr>
+      <td>description: </td>
+      <td><label>
+        <textarea name="description" ngModel class="form-control"></textarea>
+      </label></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td><input type="submit" value="Save"/></td>
+    </tr>
+  </table>
+
+
